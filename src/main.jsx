@@ -1,9 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Layout from './Layout.jsx'
-import {Home, About, Contact} from './components';
+import {Home, About, Contact, User, Github} from './components';
+import { githubInfoLoader } from './components/Github/Github.jsx'
 
 /*const router = createBrowserRouter(
   [
@@ -35,6 +37,11 @@ const router  = createBrowserRouter(
       <Route path='' element = {<Home/>} />
       <Route path='about' element = {<About />}/>
       <Route path='contact' element= {<Contact/>}/>
+      <Route path='user/:userId' element = {<User/>}/>
+      <Route
+      loader =  {githubInfoLoader}
+      path= 'github' element = {<Github/>}
+      />
     </Route>
   )
 )
